@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Weather-App
+spec:
+  selector:
+    matchLabels:
+      run: weather-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: weather-app
+    spec:
+      containers:
+      - name: weather-app
+        image: nginx
+        ports:
+        - containerPort: 80
